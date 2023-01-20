@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+nav .navbar-brand h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+}
+
+nav  ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 40%;
+}
+
+nav ul li a{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+}
+
+nav .navbar-hamburger{
+    display: none;
+}
+
+/* Screen For Pad */
+@media (max-width: 1000px) {
+    nav ul{
+        width: 50%;
+    }
+}
+
+/* Screen For Handphone */
+@media (max-width: 600px) {
+    nav ul{
+        background-color: green;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 80vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: -1;
+        transform: translateY(-100%);
+        transition: all 1s;
+    }
+
+    nav ul.slide{
+        transform: translateY(0);
+    }
+
+    nav .navbar-hamburger{
+        position: relative;
+        display: block;
+    }
+
+    nav .navbar-hamburger span{
+        background-color: rgb(234, 192, 255);
+        display: block;
+        width: 28px;
+        height: 3px;
+        margin: 5.5px;
+        border-radius: 3px;
+        transition: all 0.5s;
+    }
+
+    nav .navbar-hamburger input{
+        position: absolute;
+        top: 1px;
+        left: 5px;
+        width: 30px;
+        height: 30px;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    /* Animation */
+    nav .navbar-hamburger input:checked ~ span:nth-child(2){
+        transform: rotate(45deg) translate(-1px, -1px);
+    }
+
+    nav .navbar-hamburger input:checked ~ span:nth-child(3){
+        transform: scale(0);
+    }
+
+    nav .navbar-hamburger input:checked ~ span:nth-child(4){
+        transform: rotate(-45deg) translate(-1px, 0);
+    }
+
+    nav .navbar-hamburger span:nth-child(2){
+        transform-origin: 0 0;
+    }
+
+    nav .navbar-hamburger span:nth-child(4){
+        transform-origin: 0 100%;
+    }
+}
